@@ -1,4 +1,6 @@
-﻿namespace Maui.Backend.Models.MercadoLibreCatalog
+﻿// ReSharper disable ClassNeverInstantiated.Global
+// La clase SI es instanciada por el deseralizador.
+namespace Maui.Backend.Models.MercadoLibreCatalog
 {
     /// <summary>
     /// subclase de MercadoLibreCatalog.
@@ -6,13 +8,6 @@
     /// </summary>
     public class Paging
     {
-        public Paging(uint limit, uint total)
-        {
-            Limit = limit;
-            Total = total;
-            Count = total > limit ? limit : total;
-        }
-
         /// <summary>
         /// Límite de elementos que retorna la API de MeLi.
         /// Creo que la API no permite retornar mas de 50
@@ -31,5 +26,11 @@
         /// Cantidad de elementos en Results.
         /// </summary>
         public uint Count { get; set; }
+        public Paging(uint limit, uint total)
+        {
+            Limit = limit;
+            Total = total;
+            Count = total > limit ? limit : total;
+        }
     }
 }

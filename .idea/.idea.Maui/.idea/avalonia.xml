@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Maui.AvaloniaFrondend/App.axaml" value="Maui.AvaloniaFrondend/Maui.AvaloniaFrondend.csproj" />
+        <entry key="Maui.AvaloniaFrondend/MainWindow.axaml" value="Maui.AvaloniaFrondend/Maui.AvaloniaFrondend.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

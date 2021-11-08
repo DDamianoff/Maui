@@ -3,35 +3,30 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Maui.Backend.Models;
 using Maui.Backend.Models.DataBase;
-using Maui.Backend.Models.General;
 using Maui.Backend.Models.MercadoLibreCatalog;
 using Microsoft.EntityFrameworkCore;
+using Product = Maui.Backend.Models.DataBase.Product;
 
 namespace Maui.ConsoleFrontend
 {
     public static class Program
     {
-        // ReSharper disable once UnusedParameter.Local
-        static async Task Main(string[] args)
+        static async Task Main()
         {
-            // var catalogo = await MeLiCatalogGenerator.GetCatalogAsync("remera");
-
-            // foreach (Product result in catalogo.Results)
-            // {
-            //     await ProductOperations.PushToDataBaseAsync(result);
-            // }
-
-            var catalogFromDb = await ProductOperations.ReadAllFromDataBaseAsync();
-
-            foreach (var product in catalogFromDb)
-            {
-                Console.WriteLine(product.Title);
-                Console.WriteLine(product.Price);
-                Console.WriteLine(product.AvailableQuantity);
-                
-                Console.WriteLine("\n");
-            }
+            Product product = await Product.ReadFromDbById(614485334);
+            product.Title = "Remeras Lisas Algodón Mangas Largas S - Xxl";
+            await product.UpdateChangesInDbAsync();
         }
     }
 }
 
+/*
+var catalogo = await MercadoLibreCatalog.GetCatalogAsync("remera roja");
+
+if (catalogo != null)
+    foreach (Result result in catalogo.Results)
+    {
+        await Product.CreateInDbAsync(Product.CastFromResult(result));
+    }
+else Console.WriteLine("sin conexión a internet");
+*/

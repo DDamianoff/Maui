@@ -1,6 +1,7 @@
 ﻿#nullable enable
 using System.Collections.Generic;
-using Maui.Backend.Models.General;
+using System.Net;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 /*
@@ -15,15 +16,24 @@ namespace Maui.Backend.Models.MercadoLibreCatalog
 {
     public class MercadoLibreCatalog
     {
-        [JsonConstructor] 
-        public MercadoLibreCatalog(List<Product> results, Paging paging, uint total, uint limit)
+        public List<Result> Results { get; set; }
+        public Paging Paging { get; set; }
+        
+        [JsonConstructor] public MercadoLibreCatalog(List<Result> results, Paging paging, uint total, uint limit)
         {
             Results = results;
             Paging = paging;
         }
-        
-        public List<Product> Results { get; set; }
-
-        public Paging Paging { get; set; }
+        public static async Task<MercadoLibreCatalog?> GetCatalogAsync(
+            string searchTerm,
+            uint limit = 20, 
+            string category = "%22MLA1430%22"
+        )
+        {
+            var webclient = new WebClient();
+            string downloadedString = await Task.Run(() => webclient.DownloadString(
+                $"https://api.mercadolibre.com/sites/MLA/search?q={searchTerm}&limit={limit}&category={category}"));
+            return JsonConvert.DeserializeObject<MercadoLibreCatalog>(downloadedString);
+        }
     }
 }

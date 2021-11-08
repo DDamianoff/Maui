@@ -1,20 +1,20 @@
-﻿// ReSharper disable InconsistentNaming
-namespace Maui.Backend.Models.General
+﻿// ReSharper disable ClassNeverInstantiated.Global
+// La clase SI es instanciada por el deseralizador.
+namespace Maui.Backend.Models.MercadoLibreCatalog
 {
-    
-    
-    public class Product
+    public class Result
     {
         public string Title { get; set; }
-        public double? Price { get; set; }
-        public int? AvailableQuantity { get; set; }
+        public double Price { get; set; }
+        public int AvailableQuantity { get; set; }
         public string PermalinkToProduct { get; set; }
         public string ThumbnailUrl { get; set; }
-        public uint ProductId { get; }
+        public uint ProductId { get; set; }
         
-        public Product(  string title,
-            double? price,
-            int? available_quantity,
+        public Result(string title,
+            double price,
+            // ReSharper disable once InconsistentNaming
+            int available_quantity,
             string permalink,
             string thumbnail,
             string id)
