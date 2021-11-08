@@ -73,7 +73,7 @@ namespace Maui.Backend.Models.DataBase
                 await dataBase.Database.EnsureCreatedAsync();
                 
 
-                var inDbWorker = dataBase.Workers.First(p => p.DocketId == DocketId);
+                var inDbWorker = dataBase.Workers.First(w => w.DocketId == DocketId);
  
                 inDbWorker.Age = Age;
                 inDbWorker.Dni = Dni;
