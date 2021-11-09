@@ -17,13 +17,14 @@ namespace Maui.Backend.Models.DataBase
         public uint Age { get; set;}
         public DateTime BirthDate { get; set; }
         public string ProfilePictureId { get; set;}
+        public string Password { get; set;  }
+        
+        public bool IsAdmin { get; set; }
         
         public static async Task<bool> ExistsInDbAsync(uint id)
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
-                
                 return dataBase.Workers.Any(w => w.DocketId == id);
             }
         }
@@ -32,7 +33,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 dataBase.Workers.Add(worker);
                 await dataBase.SaveChangesAsync();
             }
@@ -41,7 +41,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 if (await ExistsInDbAsync(targetId)) return dataBase.Workers.First(w => w.DocketId == targetId);
                 
                 // TODO: fix this - var db = dataBase.Products.FromSqlRaw("SELECT * FROM Products WHERE ProductID = {0} LIMIT 1", targetId).First();
@@ -56,13 +55,13 @@ namespace Maui.Backend.Models.DataBase
                 BirthDate = DateTime.Now,
                 ProfilePictureId = null,
                 DocketId = 0,
+                IsAdmin = false
             };
         }
         public static async Task<List<Worker>> ReadAllFromDbAsync()
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 return dataBase.Workers.ToList();
             }
         }
@@ -70,7 +69,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 
 
                 var inDbWorker = dataBase.Workers.First(w => w.DocketId == DocketId);
@@ -78,10 +76,10 @@ namespace Maui.Backend.Models.DataBase
                 inDbWorker.Age = Age;
                 inDbWorker.Dni = Dni;
                 inDbWorker.BirthDate = BirthDate;
-                inDbWorker.DocketId = DocketId;
                 inDbWorker.FirstName = FirstName;
                 inDbWorker.LastName = LastName;
                 inDbWorker.ProfilePictureId = ProfilePictureId;
+                inDbWorker.Password = Password;
                 
                 await dataBase.SaveChangesAsync();
             }
@@ -90,7 +88,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
 
                 dataBase.Remove(this);
                 

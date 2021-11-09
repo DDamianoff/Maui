@@ -8,9 +8,13 @@ namespace Maui.Backend.Models.DataBase
 {
     public class Transaction
     {
+        /// <summary>
+        /// Debe dejarse en blanco para que EF
+        /// asgine su ID automáticamente.
+        /// </summary>
         public uint TransactionId { get; set; }
         public string Product { get; set; }
-        public uint QuantityShelled { get; set; }
+        public uint QuantityOperated { get; set; }
         
         /// <summary>
         /// Los valores esperados son ...
@@ -20,6 +24,7 @@ namespace Maui.Backend.Models.DataBase
         public DateTime ShellDateTime { get; set; }
         public string LinkToProduct { get; set; }
         public string ThumbnailUrl { get; set; }
+        public uint DoerId { get; set; }
         
         /// <summary>
         /// Definir si es una COMPRA (Purchase)
@@ -31,7 +36,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 return dataBase.Transactions.Any(t => t.TransactionId == id);
             }
         } 
@@ -40,7 +44,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 dataBase.Transactions.Add(transaction);
                 await dataBase.SaveChangesAsync();
             }
@@ -50,19 +53,19 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 if (await ExistsInDbAsync(targetId)) return dataBase.Transactions.First(t => t.TransactionId == targetId);
             }
             return new Transaction()
             {
                 TransactionId = 0,
                 Product = null,
-                QuantityShelled = 0,
+                QuantityOperated = 0,
                 PaymentMethod = "",
                 ShellDateTime = DateTime.Now,
                 LinkToProduct = null,
                 ThumbnailUrl = null,
-                TransactionType = null
+                TransactionType = null,
+                DoerId = 0
             };
         }
         
@@ -70,7 +73,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 return dataBase.Transactions.ToList();
             }
         }

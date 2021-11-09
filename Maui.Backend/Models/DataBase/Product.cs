@@ -23,8 +23,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
-                
                 return dataBase.Products.Any(p => p.ProductId == id);
             }
         } 
@@ -33,7 +31,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 dataBase.Products.Add(product);
                 await dataBase.SaveChangesAsync();
             }
@@ -46,8 +43,7 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
-                if (await ExistsInDbAsync(targetId)) return dataBase.Products.First(p => p.ProductId == targetId);
+               if (await ExistsInDbAsync(targetId)) return dataBase.Products.First(p => p.ProductId == targetId);
                 
                 // TODO: fix this - var db = dataBase.Products.FromSqlRaw("SELECT * FROM Products WHERE ProductID = {0} LIMIT 1", targetId).First();
                 
@@ -67,8 +63,7 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
-                return dataBase.Products.ToList();
+               return dataBase.Products.ToList();
             }
         }
         
@@ -76,8 +71,7 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
-                
+               
                 var inDbProduct = dataBase.Products.First(p => p.ProductId == ProductId);
 
                 inDbProduct.Title = Title;
@@ -94,8 +88,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
-
                 dataBase.Remove(this);
                 
                 await dataBase.SaveChangesAsync();

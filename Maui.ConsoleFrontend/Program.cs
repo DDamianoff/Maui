@@ -13,9 +13,34 @@ namespace Maui.ConsoleFrontend
     {
         static async Task Main()
         {
-            Product product = await Product.ReadFromDbById(614485334);
-            product.Title = "Remeras Lisas Algodón Mangas Largas S - Xxl";
-            await product.UpdateChangesInDbAsync();
+            await using (var db = new SqLiteDbContext()) { await db.Database.EnsureCreatedAsync(); }
+            
+            Transaction transaction1 = new Transaction()
+            {
+                DoerId = 12234,
+                LinkToProduct = "",
+                PaymentMethod = "Banco galicia debito",
+                Product = "Cassette rojo divino",
+                QuantityOperated = 10,
+                ShellDateTime = DateTime.Now,
+                ThumbnailUrl = "www.meli.com",
+                TransactionType = "COMPRA",
+            };
+            
+            Transaction transaction2 = new Transaction()
+            {
+                DoerId = 12234,
+                LinkToProduct = "",
+                PaymentMethod = "Banco galicia debito",
+                Product = "Cassette rojo divino",
+                QuantityOperated = 10,
+                ShellDateTime = DateTime.Now,
+                ThumbnailUrl = "www.meli.com",
+                TransactionType = "COMPRA",
+            };
+
+            await Transaction.CreateInDbAsync(transaction1);
+            await Transaction.CreateInDbAsync(transaction2);
         }
     }
 }

@@ -52,7 +52,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 return dataBase.Accounts.Any(p => p.AccountId == id);
             }
         }
@@ -61,7 +60,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 dataBase.Accounts.Add(account);
                 await dataBase.SaveChangesAsync();
             }
@@ -71,7 +69,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 if (await ExitsInDbAsync(targetId)) return dataBase.Accounts.First(p => p.AccountId == targetId);
                 // TODO: fix this - var db = dataBase.Products.FromSqlRaw("SELECT * FROM Accounts WHERE ProductID = {0} LIMIT 1", targetId).First();
                 
@@ -89,7 +86,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 
                 var inDbAccount = dataBase.Accounts.First(account => account.AccountId == AccountId);
 
@@ -115,7 +111,6 @@ namespace Maui.Backend.Models.DataBase
         {
             await using (var dataBase = new SqLiteDbContext())
             {
-                await dataBase.Database.EnsureCreatedAsync();
                 
                 var inDbAccount = dataBase.Accounts.First(account => account.AccountId == AccountId);
                 
