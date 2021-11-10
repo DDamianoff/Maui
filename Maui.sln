@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.WinForms.Frontend", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.Winforms.ControlLibrary", "Maui.Winforms.ControlLibrary\Maui.Winforms.ControlLibrary.csproj", "{F868C421-A6AD-492F-8B0B-E2ACF6488F4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ma.UI", "Ma.UI\Ma.UI.csproj", "{EB7A1DBD-39B8-41D6-AA94-886F74FA1E25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F868C421-A6AD-492F-8B0B-E2ACF6488F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F868C421-A6AD-492F-8B0B-E2ACF6488F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F868C421-A6AD-492F-8B0B-E2ACF6488F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB7A1DBD-39B8-41D6-AA94-886F74FA1E25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB7A1DBD-39B8-41D6-AA94-886F74FA1E25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB7A1DBD-39B8-41D6-AA94-886F74FA1E25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB7A1DBD-39B8-41D6-AA94-886F74FA1E25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
