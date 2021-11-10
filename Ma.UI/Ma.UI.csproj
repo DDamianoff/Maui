@@ -58,11 +58,47 @@
         </Compile>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="UserControls\AccountsView\AccountsControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="UserControls\AccountsView\AccountsControl.Designer.cs">
+          <DependentUpon>AccountsControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="UserControls\HomeView\HomeControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="UserControls\HomeView\HomeControl.Designer.cs">
+          <DependentUpon>HomeControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="UserControls\MainSectionTemplate.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="UserControls\MainSectionTemplate.Designer.cs">
+          <DependentUpon>MainSectionTemplate.cs</DependentUpon>
+        </Compile>
         <Compile Include="UserControls\MainWindowControl.cs">
           <SubType>UserControl</SubType>
         </Compile>
         <Compile Include="UserControls\MainWindowControl.Designer.cs">
           <DependentUpon>MainWindowControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="UserControls\SalesView\SalesControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="UserControls\SalesView\SalesControl.Designer.cs">
+          <DependentUpon>SalesControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="UserControls\StockView\StockControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="UserControls\StockView\StockControl.Designer.cs">
+          <DependentUpon>StockControl.cs</DependentUpon>
+        </Compile>
+        <Compile Include="UserControls\UsView\UsControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="UserControls\UsView\UsControl.Designer.cs">
+          <DependentUpon>UsControl.cs</DependentUpon>
         </Compile>
         <EmbeddedResource Include="MainWindow.resx">
           <DependentUpon>MainWindow.cs</DependentUpon>
@@ -76,6 +112,12 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
+        <EmbeddedResource Include="UserControls\HomeView\HomeControl.resx">
+          <DependentUpon>HomeControl.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="UserControls\MainSectionTemplate.resx">
+          <DependentUpon>MainSectionTemplate.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="UserControls\MainWindowControl.resx">
           <DependentUpon>MainWindowControl.cs</DependentUpon>
         </EmbeddedResource>
@@ -92,6 +134,9 @@
     </ItemGroup>
     <ItemGroup>
         <None Include="App.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="Assets\Kakuy.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

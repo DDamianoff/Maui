@@ -33,13 +33,13 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 561);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MinimumSize = new System.Drawing.Size(600, 400);
+            this.ClientSize = new System.Drawing.Size(800, 604);
+            this.Font = new System.Drawing.Font("Prime", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.MinimumSize = new System.Drawing.Size(600, 429);
             this.Name = "Form1";
-            this.Text = "Maui";
+            this.Text = "Kakuy";
             this.ResumeLayout(false);
         }
 
