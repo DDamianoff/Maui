@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-using Ma.UI.UserControls.AccountsView;
 using Ma.UI.UserControls.HomeView;
 using Ma.UI.UserControls.SalesView;
 using Ma.UI.UserControls.StockView;
 using Ma.UI.UserControls.UsView;
+using Ma.UI.UserControls.TransactionsView;
 
 // ReSharper disable ArrangeThisQualifier
 // ReSharper disable MemberCanBePrivate.Global
@@ -14,34 +14,34 @@ namespace Ma.UI.UserControls
     public partial class MainWindowControl : UserControl
     {
         private HomeControl _homeControl;
-        private AccountsControl _accountsControl;
+        private TransactionsControl _transactionsControl;
         private SalesControl _salesControl;
         private StockControl _stockControl;
         private UsControl _usControl;
         
         // Consultar si el elemento fue o no instanciado (??)
-        // Para hacerlo y retornarlo.
-        public AccountsView.AccountsControl AccountsControl =>
-            _accountsControl ?? 
-            (_accountsControl = new AccountsView.AccountsControl()
+        // Para crearlo y retornarlo.
+        public TransactionsControl TransactionsControl =>
+            _transactionsControl ?? 
+            (_transactionsControl = new TransactionsControl()
             {
                 Dock = DockStyle.Fill
             });
-        public SalesView.SalesControl SalesControl =>
+        public SalesControl SalesControl =>
             _salesControl ??
-            (_salesControl = new SalesView.SalesControl()
+            (_salesControl = new SalesControl()
             {
                 Dock = DockStyle.Fill
             });
-        public StockView.StockControl StockControl =>
+        public StockControl StockControl =>
             _stockControl ??
-            (_stockControl = new StockView.StockControl()
+            (_stockControl = new StockControl()
             {
                 Dock = DockStyle.Fill
             });
-        public UsView.UsControl UsControl => 
+        public UsControl UsControl => 
             _usControl ?? 
-            (_usControl = new UsView.UsControl()
+            (_usControl = new UsControl()
             {
                 Dock = DockStyle.Fill
             });
@@ -59,6 +59,7 @@ namespace Ma.UI.UserControls
             // añadir el Home como de arranque.
             pnlMainView.Controls.Add(HomeView);
             btnHome.Enabled = false;
+            lblTitle.Text = @"Inicio";
         }
 
 
@@ -89,14 +90,16 @@ namespace Ma.UI.UserControls
             pnlMainView.Controls.Add(UsControl);
             this.EnableAllbuttons();
             btnUs.Enabled = false;
+            lblTitle.Text = @"Nosotros";
         }
 
         private void btnAccounts_Click(object sender, EventArgs e)
         {
             pnlMainView.Controls.Clear();
-            pnlMainView.Controls.Add(AccountsControl);
+            pnlMainView.Controls.Add(TransactionsControl);
             this.EnableAllbuttons();
             btnAccounts.Enabled = false;
+            lblTitle.Text = @"Cuentas";
         }
 
         private void btnSales_Click(object sender, EventArgs e)
@@ -105,6 +108,7 @@ namespace Ma.UI.UserControls
             pnlMainView.Controls.Add(SalesControl);
             this.EnableAllbuttons();
             btnSales.Enabled = false;
+            lblTitle.Text = @"Ventas";
         }
 
         private void btnStock_Click(object sender, EventArgs e)
@@ -113,6 +117,7 @@ namespace Ma.UI.UserControls
             pnlMainView.Controls.Add(StockControl);
             this.EnableAllbuttons();
             btnStock.Enabled = false;
+            lblTitle.Text = @"Stock";
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -121,6 +126,8 @@ namespace Ma.UI.UserControls
             pnlMainView.Controls.Add(HomeView);
             this.EnableAllbuttons();
             btnHome.Enabled = false;
+            lblTitle.Text = @"Inicio";
         }
+        
     }
 }
