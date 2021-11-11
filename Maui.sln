@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maui.ConsoleFrontend", "Maui.ConsoleFrontend\Maui.ConsoleFrontend.csproj", "{401EA3FB-341C-4BA9-8B6F-BEA1A343D7C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maui.Console", "Maui.Console\Maui.Console.csproj", "{401EA3FB-341C-4BA9-8B6F-BEA1A343D7C8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maui.Backend", "Maui.Backend\Maui.Backend.csproj", "{48D8C9FF-33D4-47C1-AE2B-C190CBA73774}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.WinForms.Frontend", "Maui.WinFormsFrontend\Maui.WinForms.Frontend.csproj", "{F5D66A2D-5F9F-4374-8C19-A7FF17D042AA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.Winforms.ControlLibrary", "Maui.Winforms.ControlLibrary\Maui.Winforms.ControlLibrary.csproj", "{F868C421-A6AD-492F-8B0B-E2ACF6488F4F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ma.UI", "Ma.UI\Ma.UI.csproj", "{EB7A1DBD-39B8-41D6-AA94-886F74FA1E25}"
 EndProject
@@ -27,14 +23,6 @@ Global
 		{48D8C9FF-33D4-47C1-AE2B-C190CBA73774}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48D8C9FF-33D4-47C1-AE2B-C190CBA73774}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48D8C9FF-33D4-47C1-AE2B-C190CBA73774}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F5D66A2D-5F9F-4374-8C19-A7FF17D042AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F5D66A2D-5F9F-4374-8C19-A7FF17D042AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F5D66A2D-5F9F-4374-8C19-A7FF17D042AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F5D66A2D-5F9F-4374-8C19-A7FF17D042AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F868C421-A6AD-492F-8B0B-E2ACF6488F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F868C421-A6AD-492F-8B0B-E2ACF6488F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F868C421-A6AD-492F-8B0B-E2ACF6488F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F868C421-A6AD-492F-8B0B-E2ACF6488F4F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EB7A1DBD-39B8-41D6-AA94-886F74FA1E25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EB7A1DBD-39B8-41D6-AA94-886F74FA1E25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB7A1DBD-39B8-41D6-AA94-886F74FA1E25}.Release|Any CPU.ActiveCfg = Release|Any CPU

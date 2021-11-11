@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using Maui.Backend.Models;
 using Maui.Backend.Models.DataBase;
@@ -13,7 +15,15 @@ namespace Maui.ConsoleFrontend
     {
         static async Task Main()
         {
-            await using (var db = new SqLiteDbContext()) { await db.Database.EnsureCreatedAsync(); }
+
+            await using (var sqLiteDataDase = new SqLiteDbContext())
+            {
+                Console.WriteLine("Esperando que DB este creada");
+                await sqLiteDataDase.Database.EnsureCreatedAsync();
+                Console.WriteLine("Done :)");
+
+                Console.WriteLine($"el trabajador {sqLiteDataDase.Transactions.First().Worker.FirstName} vendió {sqLiteDataDase.Transactions.First().Product.Title}");
+            }
         }
     }
 }

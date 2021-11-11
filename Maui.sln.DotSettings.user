@@ -9,7 +9,10 @@
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Ma_002EUI_002FMainWindow/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Ma_002EUI_002FProperties_002FResources/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=401ea3fb_002D341c_002D4ba9_002D8b6f_002Dbea1a343d7c8_0023Maui_002EConsoleFrontend/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=48d8c9ff_002D33d4_002D47c1_002Dae2b_002Dc190cba73774_0023Maui_002EBackend/@EntryIndexedValue">True</s:Boolean>
+	
+	
+	
+	
+	
 	
 	</wpf:ResourceDictionary>
