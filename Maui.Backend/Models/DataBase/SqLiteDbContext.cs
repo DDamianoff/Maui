@@ -34,7 +34,7 @@ namespace Maui.Backend.Models.DataBase
         {
             modelBuilder.Entity<Product>().ToTable("Products");
             modelBuilder.Entity<Worker>().ToTable("Workers");
-            modelBuilder.Entity<Transaction>().ToTable("Transtactions");
+            modelBuilder.Entity<Transaction>().ToTable("Transactions");
             modelBuilder.Entity<Account>().ToTable("Accounts");
 
             // Definir las id como claves primarias.

@@ -40,53 +40,8 @@ namespace Maui.Backend.Models.DataBase
         public Worker Worker { get; set; }
         
         [ForeignKey("ProductId")]
-        public uint ProductId { get; set; }
+        public virtual uint ProductId { get; set; }
         public Product Product { get; set; }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        // CRUD
-        public static async Task<bool> ExistsInDbAsync(uint id)
-        {
-            await using (var dataBase = new SqLiteDbContext())
-            {
-                return dataBase.Transactions.Any(t => t.TransactionId == id);
-            }
-        } 
-        
-        public static async Task CreateInDbAsync(Transaction transaction)
-        {
-            await using (var dataBase = new SqLiteDbContext())
-            {
-                dataBase.Transactions.Add(transaction);
-                await dataBase.SaveChangesAsync();
-            }
-        }
-        
-        public static async Task<Transaction> ReadFromDbById(uint targetId)
-        {
-            await using (var dataBase = new SqLiteDbContext())
-            {
-                if (await ExistsInDbAsync(targetId)) return dataBase.Transactions.First(t => t.TransactionId == targetId);
-            }
-            return new Transaction() { };
-        }
-        
-        public static async Task<List<Transaction>> ReadAllFromDbAsync()
-        {
-            await using (var dataBase = new SqLiteDbContext())
-            {
-                return dataBase.Transactions.ToList();
-            }
-        }
         
     }
     

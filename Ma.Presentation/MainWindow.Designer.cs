@@ -1,6 +1,7 @@
-﻿namespace Ma.UI
+﻿
+namespace Ma.Presentation
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -17,7 +18,6 @@
             {
                 components.Dispose();
             }
-
             base.Dispose(disposing);
         }
 
@@ -29,20 +29,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(800, 604);
-            this.Font = new System.Drawing.Font("Prime", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.ForeColor = System.Drawing.Color.GhostWhite;
-            this.MinimumSize = new System.Drawing.Size(600, 429);
-            this.Name = "Form1";
-            this.Text = "Kakuy";
-            this.ResumeLayout(false);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "MainWindow";
         }
 
         #endregion
