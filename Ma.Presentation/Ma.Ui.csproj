@@ -4,6 +4,8 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>PineDefault.ico</ApplicationIcon>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,7 +18,6 @@
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="5.15.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.12" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,8 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="MainWindow.Designer.cs">
-      <DependentUpon>MainWindow.cs</DependentUpon>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Update="UserControls\HomeView\HomeControl.cs">
       <SubType>UserControl</SubType>
@@ -40,23 +43,20 @@
     <Compile Update="UserControls\MainSectionTemplate.Designer.cs">
       <DependentUpon>MainSectionTemplate.cs</DependentUpon>
     </Compile>
-    <Compile Update="UserControls\MainWindowControl.cs">
+    <Compile Update="UserControls\MainView\MainWindowControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControls\MainWindowControl.Designer.cs">
+    <Compile Update="UserControls\MainView\MainWindowControl.Designer.cs">
       <DependentUpon>MainWindowControl.cs</DependentUpon>
-    </Compile>
-    <Compile Update="UserControls\SalesView\SalesControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UserControls\SalesView\SalesControl.Designer.cs">
-      <DependentUpon>SalesControl.cs</DependentUpon>
     </Compile>
     <Compile Update="UserControls\StockView\StockControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\StockView\StockControl.Designer.cs">
       <DependentUpon>StockControl.cs</DependentUpon>
+    </Compile>
+    <Compile Update="UserControls\StockView\StockProductView.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\TransactionsView\TransactionsControl.cs">
       <SubType>UserControl</SubType>
@@ -73,18 +73,26 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="UserControls\HomeView\HomeControl.resx">
       <DependentUpon>HomeControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="UserControls\MainSectionTemplate.resx">
       <DependentUpon>MainSectionTemplate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Update="UserControls\MainWindowControl.resx">
+    <EmbeddedResource Update="UserControls\MainView\MainWindowControl.resx">
       <DependentUpon>MainWindowControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="UserControls\TransactionsView\TransactionsControl.resx">
       <DependentUpon>TransactionsControl.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

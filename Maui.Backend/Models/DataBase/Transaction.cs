@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+using Ma.Backend.Models.DataBase;
+
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 // ReSharper disable MemberCanBePrivate.Global
 
@@ -19,10 +18,8 @@ namespace Maui.Backend.Models.DataBase
         public uint QuantityOperated { get; set; }
         
         /// <summary>
-        /// Los valores esperados son ...
+        /// Los valores esperados son compra o venta
         /// </summary>
-        // TODO: Definir valores esperados.
-        // TODO: Class Payment?
         public string PaymentMethod { get; set; }
         public DateTime ShellDateTime { get; set; }
 
@@ -31,8 +28,11 @@ namespace Maui.Backend.Models.DataBase
         /// o VENTA (Sale).
         /// Sin implementación.
         /// </summary>
-        public string TransactionType { get; set; }
+        // public string TransactionType { get; set; }
         
+        public double Amount { get; set; }
+
+
         // Foreign Key
         
         [ForeignKey("DocketId")]
@@ -42,7 +42,6 @@ namespace Maui.Backend.Models.DataBase
         [ForeignKey("ProductId")]
         public virtual uint ProductId { get; set; }
         public Product Product { get; set; }
-        
     }
     
 }

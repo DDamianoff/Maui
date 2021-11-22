@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Ma.UI.UserControls.HomeView
 {
@@ -8,7 +7,8 @@ namespace Ma.UI.UserControls.HomeView
         public HomeControl()
         {
             InitializeComponent();
+
+            pnlCcontainer.BackgroundImageLayout = ImageLayout.Stretch;
         }
-        
     }
 }

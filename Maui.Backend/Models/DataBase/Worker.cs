@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-// ReSharper disable UnusedAutoPropertyAccessor.Global
+using Maui.Backend.Models.DataBase;
 
-namespace Maui.Backend.Models.DataBase
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+namespace Ma.Backend.Models.DataBase
 {
     public class Worker
     {
@@ -19,11 +18,22 @@ namespace Maui.Backend.Models.DataBase
         public uint Age { get; set;}
         public DateTime BirthDate { get; set; }
         
-        // TODO - Clave foranea para Pictures?.
-        public string ProfilePictureId { get; set;}
-        public string Password { get; set; }
-        public bool IsAdmin { get; set; }
-        
+        public string ProfilePicturePermalink { get; set;}
+
+        public bool IsActive { get; set; }
+
+        public string Title { get; set; }
+
+        /// <summary>
+        /// Se espera un valor aRGB (base 16)  
+        /// </summary>
+        public uint FavoriteBackColor { get; set; }
+
+        /// <summary>
+        /// Se espera un valor aRGB (base 16)  
+        /// </summary>
+        public uint FavoriteForeColor { get; set; }
+
         public ICollection<Transaction> Transactions { get; set; }
     }
 }

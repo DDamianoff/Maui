@@ -1,28 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Ma.Backend.Models.DataBase;
 using Maui.Backend.Models.DataBase;
+using Microsoft.EntityFrameworkCore;
+
+// ReSharper disable ConvertToUsingDeclaration
 
 namespace Ma.Controllers.Ma.Ui
 {
-    /// <summary>
-    /// Clase destinada a ser heredada por todos los
-    /// controladores.
-    /// El objetivo es tener un código más limpio
-    /// agrupoando los métodos más comunes en todos
-    /// los controladores.
-    /// </summary>
     public class GeneralController
     {
 
-        public async Task CreateDbIfNoExistsAsync()
+        public void CreateDbIfNoExists()
+        {
+            using (var db = new SqLiteDbContext())
+            {
+                db.Database.EnsureCreated();
+            }
+        }
+
+        public bool ExistsWorkers()
+        {
+            using (var db = new SqLiteDbContext())
+            {
+               return db.Workers
+                   .Any();
+            }
+        }
+
+        public Worker GetDefaultWorker()
+        {
+            using (var db = new SqLiteDbContext())
+            {
+                return db.Workers.First();
+            }
+        }
+
+        public List<Worker> GetAllWorkers()
+        {
+            using (var db = new SqLiteDbContext())
+            {
+                return db.Workers.ToList();
+            }
+        }
+
+        public async Task<List<Worker>> GetAllWorkersAsync()
         {
             await using (var db = new SqLiteDbContext())
             {
-                await Task.Run(() => db.Database.EnsureCreatedAsync());
+                return await Task.Run(db.Workers.ToList);
             }
+        }
+
+
+        public void AddWorker(Worker workerToAdd)
+        {
+             using (var db = new SqLiteDbContext())
+             {
+                 db.Workers.Add(workerToAdd);
+                 db.SaveChanges();
+             }
         }
     }
 }

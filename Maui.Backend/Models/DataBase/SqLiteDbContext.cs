@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Ma.Backend.Models.DataBase;
 using Microsoft.EntityFrameworkCore;
 
 namespace Maui.Backend.Models.DataBase

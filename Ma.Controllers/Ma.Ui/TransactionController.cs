@@ -1,9 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity.Core.Objects;
 using System.Linq;
-using System.Threading.Tasks;
 using Maui.Backend.Models.DataBase;
-using Maui.Backend.Models.MercadoLibreCatalog;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ma.Controllers.Ma.Ui
@@ -18,7 +15,6 @@ namespace Ma.Controllers.Ma.Ui
             {
                 {
                     var Transactions = db.Transactions.Include("Worker").Include("Product");
-                    var queryAll = Transactions.All(t => t.Worker != null);
                     return Transactions.ToList();
                 }
             }

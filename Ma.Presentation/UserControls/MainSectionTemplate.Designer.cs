@@ -31,18 +31,33 @@ namespace Ma.UI.UserControls
         /// </summary>
         private void InitializeComponent()
         {
+            this.pnlHeaderReservedSpace = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            // 
+            // pnlHeaderReservedSpace
+            // 
+            this.pnlHeaderReservedSpace.BackColor = System.Drawing.Color.Silver;
+            this.pnlHeaderReservedSpace.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeaderReservedSpace.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeaderReservedSpace.Name = "pnlHeaderReservedSpace";
+            this.pnlHeaderReservedSpace.Size = new System.Drawing.Size(821, 55);
+            this.pnlHeaderReservedSpace.TabIndex = 0;
             // 
             // MainSectionTemplate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            this.Controls.Add(this.pnlHeaderReservedSpace);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainSectionTemplate";
-            this.Size = new System.Drawing.Size(704, 518);
+            this.Size = new System.Drawing.Size(821, 598);
             this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel pnlHeaderReservedSpace;
     }
 }

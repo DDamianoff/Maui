@@ -1,7 +1,7 @@
 ﻿
-namespace Ma.Presentation
+namespace Ma.Ui
 {
-    partial class MainWindow
+    partial class frmMainWindowForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,19 @@ namespace Ma.Presentation
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainWindowForm));
+            this.SuspendLayout();
+            // 
+            // frmMainWindowForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "MainWindow";
+            this.ClientSize = new System.Drawing.Size(871, 498);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmMainWindowForm";
+            this.Text = "Alpine - Ropa deportiva";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

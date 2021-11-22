@@ -1,29 +1,29 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ma.Controllers.Ma.Ui;
+using Ma.Ui;
 
 namespace Ma.Presentation
 {
     static class Program
     {
-        private static GeneralController _controller = new GeneralController();
+        private static readonly GeneralController controller = new GeneralController();
+
+        public static frmMainWindowForm MainFormWindowForm = new frmMainWindowForm();
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static async Task Main()
+        static void Main()
         {
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
 
+            controller.CreateDbIfNoExists();
 
-
-            await _controller.CreateDbIfNoExistsAsync();
+            Application.Run(MainFormWindowForm);
         }
     }
 }

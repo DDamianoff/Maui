@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Windows.Documents;
 using Ma.Controllers.Ma.Ui;
 using Maui.Backend.Models.DataBase;
 
@@ -14,32 +13,32 @@ namespace Ma.UI.UserControls.TransactionsView
         public TransactionsControl()
         {
             InitializeComponent();
-            LoadDataGridViewData();
         }
 
-        private void LoadDataGridViewData()
+        public async void LoadDataGridViewData()
         {
+            dgvTransactions.Rows.Clear();
 
-            List<Transaction> transactionList = _transactioncController.GetAllTransactions();
+            List<Transaction> transactionList = await Task.Run(() => _transactioncController.GetAllTransactions());
 
             foreach (Transaction transaction in transactionList)
             {
                 int n = dgvTransactions.Rows.Add();
                 // Codigo
-                dgvTransactions.Rows[n].Cells[0].Value = $"{transaction.TransactionId}";
+                dgvTransactions.Rows[n].Cells[0].Value = transaction.TransactionId;
                 // Producto
-                dgvTransactions.Rows[n].Cells[1].Value = $"{transaction.Product.Title}";
+                dgvTransactions.Rows[n].Cells[1].Value = transaction.Product.Title;
                 // Vendedor
                 dgvTransactions.Rows[n].Cells[2].Value = $"{transaction.Worker.FirstName} {transaction.Worker.LastName}";
                 // Cantidad
-                dgvTransactions.Rows[n].Cells[3].Value = $"{transaction.QuantityOperated}";
+                dgvTransactions.Rows[n].Cells[3].Value = transaction.QuantityOperated;
                 // Fecha
-                dgvTransactions.Rows[n].Cells[4].Value = $"{transaction.ShellDateTime}";
+                dgvTransactions.Rows[n].Cells[4].Value = transaction.ShellDateTime;
                 // Monto
                 // TODO: chopear los decimales.
-                dgvTransactions.Rows[n].Cells[5].Value = $"{transaction.QuantityOperated * transaction.Product.Price}";
+                dgvTransactions.Rows[n].Cells[5].Value = transaction.Amount;
                 // tipo
-                dgvTransactions.Rows[n].Cells[6].Value = $"{transaction.PaymentMethod}";
+                dgvTransactions.Rows[n].Cells[6].Value = transaction.PaymentMethod;
             }
         }
 

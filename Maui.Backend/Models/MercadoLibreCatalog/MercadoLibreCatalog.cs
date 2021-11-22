@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
+using Maui.Backend.Models.MercadoLibreCatalog;
 using Newtonsoft.Json;
 
 /*
@@ -12,7 +13,7 @@ using Newtonsoft.Json;
  * para crear el MeLiCataLog.
  */
 
-namespace Maui.Backend.Models.MercadoLibreCatalog
+namespace Ma.Backend.Models.MercadoLibreCatalog
 {
     public class MercadoLibreCatalog
     {
